@@ -1,4 +1,4 @@
-package controller;
+package app.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entity.BibliotecaEntity;
-import service.BibliotecaService;
+import app.entity.BibliotecaEntity;
+import app.service.BibliotecaService;
 
 @RestController
 @RequestMapping("/api/biblioteca")
-
 public class BibliotecaController {
 
 	@Autowired
