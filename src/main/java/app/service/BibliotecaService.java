@@ -22,9 +22,9 @@ public class BibliotecaService {
 
 	public List<BibliotecaEntity> listAll(){
 
-		BibliotecaEntity biblioteca = new BibliotecaEntity(1, "AAA", "BBB");
-		BibliotecaEntity biblioteca2 = new BibliotecaEntity(2, "ABC", "BBB");
-		BibliotecaEntity biblioteca3 = new BibliotecaEntity(3, "DDD", "BBB");
+		BibliotecaEntity biblioteca = new BibliotecaEntity(1, "Biblioteca", "45888898");
+		BibliotecaEntity biblioteca2 = new BibliotecaEntity(2, "BibliotecaB", "458888998");
+		BibliotecaEntity biblioteca3 = new BibliotecaEntity(3, "BibliotecaC", "458888998");
 
 		lista.add(biblioteca);
 		lista.add(biblioteca2);
