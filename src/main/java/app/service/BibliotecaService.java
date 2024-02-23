@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import app.entity.BibliotecaEntity;
-import app.entity.Carro;
 
 
 @Service
@@ -68,6 +67,24 @@ public BibliotecaEntity findById(long idBiblioteca) {
 	return null;
 
 }
+
+public boolean delete(long idBiblioteca) {
+
+	// banco de dados
+	lista = this.listAll();
+
+	if(lista != null)
+		for(BibliotecaEntity biblioteca : this.lista) {
+			if(biblioteca.getId() == idBiblioteca) {
+				this.lista.remove(biblioteca);
+				return true;
+			}
+		}
+
+	return false;
+
+}
+
 	
 	
 }
