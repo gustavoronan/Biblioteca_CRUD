@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import app.entity.BibliotecaEntity;
+import app.entity.Carro;
 
 
 @Service
@@ -51,6 +52,22 @@ public String update(long idBiblioteca, BibliotecaEntity biblioteca) {
 
 		return "não encontrado";
 	}
+
+public BibliotecaEntity findById(long idBiblioteca) {
+
+	// banco de dados
+	lista = this.listAll();
+
+	if(lista != null)
+		for(int i=0; i<lista.size(); i++) {
+			if(lista.get(i).getId() == idBiblioteca) {
+				return lista.get(i);
+			}
+		}
+
+	return null;
+
+}
 	
 	
 }
