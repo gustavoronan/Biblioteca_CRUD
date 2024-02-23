@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import app.entity.BibliotecaEntity;
-import app.entity.Carro;
 
 
 @Service
@@ -37,24 +36,20 @@ public class BibliotecaService {
 
 	
 	
-	public String update (long idBiblioteca, BibliotecaEntity biblioteca) {
+	
+public String update(long idBiblioteca, BibliotecaEntity biblioteca) {
 		
 		lista = this.listAll();
-		
-		if (lista!=null) {
-			for (int i=0; i<lista.size(); i++) {
+
+		if(lista != null)
+			for(int i=0; i<lista.size(); i++) {
 				if(lista.get(i).getId() == idBiblioteca) {
 					lista.set(i, biblioteca);
-					return biblioteca.getNome() + " alterado com sucesso";
-
+					return biblioteca.getNome()+ " biblioteca alterada com sucesso";
 				}
 			}
-			
-		}else {
-			
-			return "biblioteca nao encontrada.";
-		}
-			
+
+		return "não encontrado";
 	}
 	
 	

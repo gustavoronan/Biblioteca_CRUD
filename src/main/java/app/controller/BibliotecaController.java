@@ -42,7 +42,7 @@ public class BibliotecaController {
 	}
 	
 	@PutMapping("update/{idBiblioteca}")
-	public ResponseEntity<String> save(@RequestBody BibliotecaEntity biblioteca, @PathVariable int idBiblioteca){
+	public ResponseEntity<String> save(@RequestBody BibliotecaEntity biblioteca, @PathVariable long idBiblioteca){
 
 
 
