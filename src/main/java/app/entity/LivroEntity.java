@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class LivroEntity {
-	int idLivro;
+	long idLivro;
 	String issn;
 	String titulo;
 	String sinopse;

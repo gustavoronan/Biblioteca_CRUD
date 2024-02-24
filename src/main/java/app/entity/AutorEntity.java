@@ -10,7 +10,7 @@ import lombok.Setter;
 
 public class AutorEntity {
 
-	int idAutor;
+	long idAutor;
 	String nomeAutor;
 	String cpfAutor;
 	int idadeAutor;

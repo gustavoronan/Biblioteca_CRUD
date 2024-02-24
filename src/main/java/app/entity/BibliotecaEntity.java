@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class BibliotecaEntity {
-	int id;
+	long id;
 	String nome;
 	String telefone;
 }
