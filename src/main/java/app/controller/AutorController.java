@@ -14,27 +14,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import app.entity.BibliotecaEntity;
-import app.service.BibliotecaService;
+import app.entity.AutorEntity;
+import app.service.AutorService;
+
+
 
 @RestController
-@RequestMapping("/api/biblioteca")
-public class BibliotecaController {
+@RequestMapping("/api/autor")
 
+public class AutorController {
+	
 	@Autowired
-	private BibliotecaService bibliotecaService;
+	private AutorService autorService;
 
 	@PostMapping("/save")
-	public ResponseEntity<String> save(@RequestBody BibliotecaEntity biblioteca){
+	public ResponseEntity<String> save(@RequestBody AutorEntity autor){
 
 
 
 		try {
 
-			String mensagem = this.bibliotecaService.save(biblioteca);
+			String mensagem = this.autorService.save(autor);
 			return new ResponseEntity<String>(mensagem,HttpStatus.OK);
-
-
 
 
 		} catch (Exception e) {
@@ -44,35 +45,13 @@ public class BibliotecaController {
 		}		
 		
 	}
-	
-	@PutMapping("update/{idBiblioteca}")
-	public ResponseEntity<String> update(@RequestBody BibliotecaEntity biblioteca, @PathVariable long idBiblioteca){
-
-
-
-		try {
-
-			String mensagem = this.bibliotecaService.update(idBiblioteca, biblioteca);
-			return new ResponseEntity<String>(mensagem,HttpStatus.OK);
-
-
-
-
-		} catch (Exception e) {
-
-			return new ResponseEntity<String>("Deu esse erro aqui: "+e.getMessage(), HttpStatus.BAD_REQUEST);
-
-		}		
-		
-	}
-	
 	
 	@GetMapping("/listAll")
-	public ResponseEntity<List<BibliotecaEntity>> listAll (){
+	public ResponseEntity<List<AutorEntity>> listAll (){
 		
 		try {
 			
-			List<BibliotecaEntity> lista = this.bibliotecaService.listAll();
+			List<AutorEntity> lista = this.autorService.listAll();
 			return new ResponseEntity<>(lista, HttpStatus.CREATED);
 			
 		} catch (Exception e) {
@@ -83,14 +62,13 @@ public class BibliotecaController {
 		
 	}
 	
-	
-	@GetMapping("/findById/{idBiblioteca}")
-	public ResponseEntity<BibliotecaEntity> findById(@PathVariable long idBiblioteca){
+	@GetMapping("/findById/{idAutor}")
+	public ResponseEntity<AutorEntity> findById(@PathVariable long idAutor){
 		
 		try {
 			
-			BibliotecaEntity biblioteca = this.bibliotecaService.findById(idBiblioteca);
-			return new ResponseEntity<>(biblioteca, HttpStatus.OK);
+			AutorEntity autor = this.autorService.findById(idAutor);
+			return new ResponseEntity<>(autor, HttpStatus.OK);
 			
 		} catch (Exception e) {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -98,12 +76,31 @@ public class BibliotecaController {
 		
 	}
 	
-	@DeleteMapping("/delete/{idBiblioteca}")
-	public ResponseEntity<String> delete(@PathVariable long idBiblioteca){
+	@PutMapping("update/{idAutor}")
+	public ResponseEntity<String> update(@RequestBody AutorEntity autor, @PathVariable long idAutor){
+
+
+
+		try {
+
+			String mensagem = this.autorService.update(idAutor, autor);
+			return new ResponseEntity<String>(mensagem,HttpStatus.OK);
+
+
+		} catch (Exception e) {
+
+			return new ResponseEntity<String>("Deu esse erro aqui: "+e.getMessage(), HttpStatus.BAD_REQUEST);
+
+		}		
+		
+	}
+	
+	@DeleteMapping("/delete/{idAutor}")
+	public ResponseEntity<String> delete(@PathVariable long idAutor){
 		
 		try {
 			
-			if (this.bibliotecaService.delete(idBiblioteca)) {
+			if (this.autorService.delete(idAutor)) {
 				return new ResponseEntity<String>("Apagado com sucesso", HttpStatus.OK);
 				}else 
 					return new ResponseEntity<String>("Nao encontrado", HttpStatus.NOT_FOUND);
@@ -114,7 +111,4 @@ public class BibliotecaController {
 		}
 		
 	}
- 
-
 }
-

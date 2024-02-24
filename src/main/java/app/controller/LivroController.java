@@ -45,7 +45,7 @@ public class LivroController {
 	}
 	
 	@PutMapping("update/{idLivro}")
-	public ResponseEntity<String> save(@RequestBody LivroEntity livro, @PathVariable long idLivro){
+	public ResponseEntity<String> update(@RequestBody LivroEntity livro, @PathVariable long idLivro){
 
 
 
