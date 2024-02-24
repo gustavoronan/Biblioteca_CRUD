@@ -3,8 +3,11 @@ package app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import app.entity.EditoraEntity;
 
+@Service
 public class EditoraService {
 
 List<EditoraEntity> lista = new ArrayList<>();
